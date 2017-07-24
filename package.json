@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/katerynabond/meal-planning/issues"
   },
-  "homepage": "https://github.com/katerynabond/meal-planning#readme"
+  "homepage": "https://github.com/katerynabond/meal-planning#readme",
+  "dependencies": {
+    "webpack": "^3.3.0"
+  }
 }
