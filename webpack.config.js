@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 
-
-
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const  HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './src/app.js',
@@ -43,5 +42,12 @@ module.exports = {
 		]
 	},
 
-	plugins: [new UglifyJSPlugin(), new ExtractTextPlugin('style.css')]
+	plugins: [new UglifyJSPlugin(), 
+		new ExtractTextPlugin('style.css'),
+		new HtmlWebpackPlugin({
+ 							title: 'Meal planning',
+ 							filename: 'index.html',
+ 							template: './src/index.html'
+ 						})
+	]
 };
