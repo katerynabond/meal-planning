@@ -3,7 +3,7 @@ const path = require('path');
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const  HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './src/app.js',
@@ -26,28 +26,26 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-
 				use: ExtractTextPlugin.extract({
-					use: [
-						{
-							loader: 'css-loader',
-							options: {
-								sourceMap: true
-							}
-						}
-					],
+					use: 'css-loader',
 					fallback: 'style-loader'
 				})
 			}
 		]
 	},
 
-	plugins: [new UglifyJSPlugin(), 
+	plugins: [
+//		new UglifyJSPlugin(),
 		new ExtractTextPlugin('style.css'),
 		new HtmlWebpackPlugin({
- 							title: 'Meal planning',
- 							filename: 'index.html',
- 							template: './src/index.html'
- 						})
+			title: 'Meal planning',
+			filename: 'index.html',
+			template: './src/index.html'
+		}),
+		new HtmlWebpackPlugin({
+			title: 'Meal planning',
+			filename: 'main.html',
+			template: './src/main.html'
+		})
 	]
 };
