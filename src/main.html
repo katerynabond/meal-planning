@@ -31,16 +31,16 @@
         <div class="container has-text-centered">
             <div class="columns">
                 <div class="column is-2 has-text-left">
-                    <a class="button is-primary is-outlined subtitle">
+                    <a class="button is-primary is-outlined subtitle" ng-click="ctrl.previousDay()">
                     &lt; {{ ctrl.previousWeekDay }}
                     </a>
                 </div>
                 <div class="column is-8">
-                    <h1 class="title">Monday's meals</h1>
-                    <h2 class="subtitle">10 Jul</h2>
+                    <h1 class="title">{{ ctrl.currentWeekDay}}'s meals</h1>
+                    <h2 class="subtitle">{{ ctrl.currentDate | date:'MMM dd'}}</h2>
                 </div>
                 <div class="column is-2 has-text-right">
-                    <a class="button is-primary is-outlined subtitle">
+                    <a class="button is-primary is-outlined subtitle" ng-click="ctrl.nextDay()">
                     {{ ctrl.nextWeekDay }} &gt;
                     </a>
                 </div>
