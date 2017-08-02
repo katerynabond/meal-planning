@@ -67,7 +67,7 @@
                     <div class="media-content">
                         <div class="content">
                             <p class="subtitle">
-                                This Giant BBQ Sandwich Is Everything You've Ever Wanted In Life
+                                {{ ctrl.currentMeal.description }}
                             </p>
                         </div>
                     </div>
@@ -80,64 +80,21 @@
                 </article>
                 <div class="content has-text-left">
                     <h2>Ingredients</h2>
-                    <p>
-                        1 rack baby back ribs, membrane removed (this is essential for de-boning)
+                    <p ng-repeat="ingredient in ctrl.currentMeal.ingredients">
+                       {{ ingredient }}
                     </p>
                     <div class="columns">
-                        <div class="column">
-                            <h5>Dry Rub</h5>
+                        <div class="column" ng-repeat="section in ctrl.currentMeal.ingredientSections">
+                            <h5>{{ section.title }}</h5>
                             <dl>
-                                <dd>2 tablespoons paprika</dd>
-                                <dd>1 tablespoon pepper</dd>
-                                <dd>2 tablespoons brown sugar</dd>
-                                <dd>2 teaspoons salt</dd>
-                                <dd>1 teaspoons garlic powder</dd>
-                                <dd>1 teaspoons onion powder</dd>
-                                <dd>1 teaspoons cumin</dd>
-                                <dd>1 teaspoons chili powder</dd>
-                            </dl>
-                        </div>
-                        <div class="column">
-                            <h5>Glaze</h5>
-                            <dl>
-                                <dd>1 cup barbecue sauce</dd>
-                                <dd>¼ cup honey</dd>
-                                <dd>1 large loaf bread</dd>
-                                <dd>¼ cup melted butter</dd>
+                                <dd ng-repeat="ingredient in section.ingredients"> {{ingredient}} </dd>
                             </dl>
                         </div>
                     </div>
-                    <h5>The rest</h5>
-                    <dl>
-                        <dd>1 tablespoon sesame seeds </dd>
-                        <dd>2 large onions, sautéed or caramelized </dd>
-                        <dd>2 tablespoons parsley, chopped </dd>
-                        <dd>Pickles </dd>
-                        <dd>White onion slices</dd>
-                    </dl>
 
                     <h2>Preparation</h2>
                     <ol>
-                        <li>Preheat oven to 300°F/150°C.</li>
-                        <li>Lay the ribs on a long sheet of aluminum foil.</li>
-                        <li>Combine the dry rub ingredients in a small bowl, then cover the ribs evenly on both sides, making
-                            sure to press the rub into any cracks and smooth out any large lumps.</li>
-                        <li>Wrap the foil around the ribs, making sure they’re completely sealed. Use additional sheets if necessary.
-                            It’s important that the juices of the ribs stay inside the foil to keep the ribs moist during
-                            cooking.
-                        </li>
-                        <li>Bake the ribs for 3 to 3½ hours, until tender.</li>
-                        <li>Unwrap the ribs carefully, then wiggle the bones out slowly. If you’re having trouble removing the
-                            bones, use a knife to make small cuts to help their removal.</li>
-                        <li>Combine the glaze ingredients in a bowl and brush both sides of the deboned slab of ribs generously,
-                            being sure to carefully handle the ribs since they’re super tender.</li>
-                        <li>Broil the ribs for about 5 minutes until the glaze is bubbling and starting to brown. Set aside.</li>
-                        <li>Slice the bread in half into the thickness of your choice, then butter both sides of the bread. Sprinkle
-                            sesame seeds on top, then toast your bread by broiling it for a few minutes. Keep a careful eye
-                            on it as it will burn extremely quickly.</li>
-                        <li>With two long spatulas or knives, carefully transfer the glazed ribs to the bread, then top with
-                            onions, parsley, and the top bun.</li>
-                        <li>Slice into about 2-inch sandwiches, and serve!</li>
+                        <li ng-repeat="step in ctrl.currentMeal.preparationSteps"> {{ step }}</li>
                     </ol>
                     <h2>Video</h2>
 
