@@ -1,4 +1,5 @@
 require('./bulma.css');
+require('./style.css');
 const angular = require('angular');
 
 //create our application
@@ -30,6 +31,8 @@ function MainController(){
   this.breakfastSelected = false;
   this.lunchSelected = true;
   this.dinnerSelected = false;
+
+  this.liked = false;
 
   this.currentMeal = {
     description: 'This Giant BBQ Sandwich Is Everything You\'ve Ever Wanted In Life',
@@ -90,6 +93,10 @@ function MainController(){
     self.breakfastSelected = courseName === 'breakfast';
     self.lunchSelected = courseName === 'lunch';
     self.dinnerSelected = courseName === 'dinner';
+  };
+
+  this.toggleLike = function() {
+    self.liked = !self.liked;
   };
 
   this.setDate = function(newDate) {

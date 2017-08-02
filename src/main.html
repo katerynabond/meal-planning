@@ -73,8 +73,8 @@
                     </div>
 
                     <div class="media-right">
-                        <a class="button is-danger is-outlined">
-                            <span class="icon is-small"><i class="fa fa-heart" style="color:red"></i></span>
+                        <a class="button is-danger" ng-class="{'is-outlined': !ctrl.liked}" ng-click="ctrl.toggleLike()">
+                            <span class="icon is-small"><i class="fa fa-heart"></i></span>
                         </a>
                     </div>
                 </article>
