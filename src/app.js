@@ -34,20 +34,24 @@ function MainController(mealService){
   this.breakfastSelected = false;
   this.lunchSelected = true;
   this.dinnerSelected = false;
-
+  this.courseName = 'lunch';
   this.liked = false;
 
   this.currentMeal = {};
 
-  this.currentMeal = mealService.getMeal()
-    .then(meal => this.currentMeal = meal);
-
   var self = this;
 
+  this.loadMeal = function() {
+    mealService.getMeal(self.currentDate, self.courseName)
+      .then(meal => this.currentMeal = meal);
+  };
+
   this.selectCourse = function(courseName){
+    self.courseName = courseName;
     self.breakfastSelected = courseName === 'breakfast';
     self.lunchSelected = courseName === 'lunch';
     self.dinnerSelected = courseName === 'dinner';
+    self.loadMeal();
   };
 
   this.toggleLike = function() {
@@ -65,6 +69,7 @@ function MainController(mealService){
     var tomorrow = new Date(newDate);
     tomorrow.setDate(tomorrow.getDate()+1);
     self.nextWeekDay = self.dayNames[tomorrow.getDay()];
+    self.loadMeal();
   };
 
   this.nextDay = function(){
