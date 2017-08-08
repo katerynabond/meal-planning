@@ -30,18 +30,7 @@
     <section class="section" ng-controller="MainController as ctrl">
         <div class="container has-text-centered">
             <day-selector date-changed="ctrl.dateChangedHandler(date)" selected-date="ctrl.date2"></day-selector>
-            <div class="field has-addons has-addons-centered subtitle">
-
-                <p class="control">
-                    <a class="button is-large" ng-class="{'is-primary': ctrl.breakfastSelected}" ng-click="ctrl.selectCourse('breakfast')">Breakfast</a>
-                </p>
-                <p class="control">
-                    <a class="button is-large" ng-class="{'is-primary': ctrl.lunchSelected}" ng-click="ctrl.selectCourse('lunch')">Lunch</a>
-                </p>
-                <p class="control">
-                    <a class="button is-large" ng-class="{'is-primary': ctrl.dinnerSelected}" ng-click="ctrl.selectCourse('dinner')">Dinner</a>
-                </p>
-            </div>
+            <course-selector course-changed="ctrl.courseChanged(course)"></course-selector>
             <div class="box">
                 <article class="media">
                     <div class="media-left">
