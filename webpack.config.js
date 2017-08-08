@@ -30,6 +30,20 @@ module.exports = {
 					use: 'css-loader',
 					fallback: 'style-loader'
 				})
+			},
+			{
+				test: /\.(jpg|png|svg)$/,
+				loader: 'file-loader',
+				options: {
+					name: './images/[name][hash].[ext]'
+				}
+			},
+			{
+				test: /\.html$/,
+				loader: 'html-loader',
+				options: {
+					minimize: true
+				}
 			}
 		]
 	},

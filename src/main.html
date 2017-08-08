@@ -29,22 +29,7 @@
 <!-- End of Header -->
     <section class="section" ng-controller="MainController as ctrl">
         <div class="container has-text-centered">
-            <div class="columns">
-                <div class="column is-2 has-text-left">
-                    <a class="button is-primary is-outlined subtitle" ng-click="ctrl.previousDay()">
-                    &lt; {{ ctrl.previousWeekDay }}
-                    </a>
-                </div>
-                <div class="column is-8">
-                    <h1 class="title">{{ ctrl.currentWeekDay}}'s meals</h1>
-                    <h2 class="subtitle">{{ ctrl.currentDate | date:'MMM dd'}}</h2>
-                </div>
-                <div class="column is-2 has-text-right">
-                    <a class="button is-primary is-outlined subtitle" ng-click="ctrl.nextDay()">
-                    {{ ctrl.nextWeekDay }} &gt;
-                    </a>
-                </div>
-            </div>
+            <day-selector date-changed="ctrl.dateChangedHandler(date)" selected-date="ctrl.date2"></day-selector>
             <div class="field has-addons has-addons-centered subtitle">
 
                 <p class="control">
