@@ -1,0 +1,43 @@
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <p class="image is-128x128">
+                <img src="/images/bbqsandwich.png">
+            </p>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p class="subtitle">
+                    {{ $ctrl.currentMeal.description }}
+                </p>
+            </div>
+        </div>
+
+        <div class="media-right">
+            <a class="button is-danger" ng-class="{'is-outlined': !$ctrl.liked}" ng-click="$ctrl.toggleLike()">
+                            <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                        </a>
+        </div>
+    </article>
+    <div class="content has-text-left">
+        <h2>Ingredients</h2>
+        <p ng-repeat="ingredient in $ctrl.currentMeal.ingredients">
+            {{ ingredient }}
+        </p>
+        <div class="columns">
+            <div class="column" ng-repeat="section in $ctrl.currentMeal.ingredientSections">
+                <h5>{{ section.title }}</h5>
+                <dl>
+                    <dd ng-repeat="ingredient in section.ingredients"> {{ingredient}} </dd>
+                </dl>
+            </div>
+        </div>
+
+        <h2>Preparation</h2>
+        <ol>
+            <li ng-repeat="step in $ctrl.currentMeal.preparationSteps"> {{ step }}</li>
+        </ol>
+        <h2>Video</h2>
+
+    </div>
+</div>
