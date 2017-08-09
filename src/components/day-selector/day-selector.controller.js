@@ -28,7 +28,7 @@ function DaySelectorController() {
         tomorrow.setDate(tomorrow.getDate() + 1);
         self.nextWeekDay = self.dayNames[tomorrow.getDay()];
 
-        self.selectedDate = self.currentDate; // setting date for binding -- TODO: remove?
+        //self.selectedDate = self.currentDate; // setting date for binding -- TODO: remove?
         if (self.dateChanged) self.dateChanged({ date: self.currentDate }); // triggering event
     };
 
