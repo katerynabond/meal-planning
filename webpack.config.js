@@ -53,11 +53,6 @@ module.exports = {
 		new ExtractTextPlugin('style.css'),
 		new HtmlWebpackPlugin({
 			title: 'Meal planning',
-			filename: 'index.html',
-			template: './src/index.html'
-		}),
-		new HtmlWebpackPlugin({
-			title: 'Meal planning',
 			filename: 'main.html',
 			template: './src/main.html'
 		})

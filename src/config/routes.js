@@ -5,8 +5,8 @@ function RouterConfig($routeProvider)  {
         .when('/', {
            template: '<main-page></main-page>' 
         })
-        .when('/test', {
-           template: 'testing another page' 
+        .when('/plan', {
+           template: 'asdasdas' 
         })
         .otherwise({
             redirectTo: '/'
