@@ -9,6 +9,7 @@ const CourseSelectorComponent = require('./components/course-selector/index.js')
 const MealDescriptionComponent = require('./components/meal-description/index.js');
 const MainPageComponent = require('./components/main-page/index.js');
 const PlanningPageComponent = require('./components/planning-page/index.js');
+const MealsListComponent = require('./components/meals-list/index.js');
 //create our application
 angular.module('meal-planning', [ ngRoute ]);
 
@@ -23,4 +24,5 @@ angular.module('meal-planning')
   .component('mealDescription', MealDescriptionComponent)
   .component('mainPage', MainPageComponent)
   .component('planningPage', PlanningPageComponent)
+  .component('mealsList', MealsListComponent)
 ;
