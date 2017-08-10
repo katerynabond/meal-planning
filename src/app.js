@@ -8,6 +8,7 @@ const DaySelectorComponent = require('./components/day-selector/index.js');
 const CourseSelectorComponent = require('./components/course-selector/index.js');
 const MealDescriptionComponent = require('./components/meal-description/index.js');
 const MainPageComponent = require('./components/main-page/index.js');
+const PlanningPageComponent = require('./components/planning-page/index.js');
 //create our application
 angular.module('meal-planning', [ ngRoute ]);
 
@@ -20,5 +21,6 @@ angular.module('meal-planning')
   .component('daySelector', DaySelectorComponent)
   .component('courseSelector', CourseSelectorComponent)
   .component('mealDescription', MealDescriptionComponent)
-  .component('mainPage', MainPageComponent);
-
+  .component('mainPage', MainPageComponent)
+  .component('planningPage', PlanningPageComponent)
+;
