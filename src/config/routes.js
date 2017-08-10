@@ -6,7 +6,7 @@ function RouterConfig($routeProvider)  {
            template: '<main-page></main-page>' 
         })
         .when('/plan', {
-           template: 'asdasdas' 
+           template: require('../planning.html')
         })
         .otherwise({
             redirectTo: '/'
