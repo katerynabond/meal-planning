@@ -3,7 +3,12 @@ const template = require('./meals-list.html');
 
 const MealsListComponent = {
     controller: controller,
-    template: template
+    template: template,
+    bindings: {
+        meals: '<',
+        mealAdded: '&',
+        mealRemoved: '&'
+    }
 };
 
 module.exports = MealsListComponent;

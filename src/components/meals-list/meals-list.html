@@ -19,11 +19,48 @@
     </div>
 </div>
 
-<div class="box">
+
+<div class="box" ng-repeat="meal in $ctrl.meals"  ng-class="{'notification is-success' : meal.added}">
     <article class="media">
         <div class="media-left">
             <p class="image is-64x64">
                 <!-- <img src="images/grechka.jpg"> -->
+            </p>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p class="subtitle is-5">
+                    {{meal.title }}
+                </p>
+                <p>
+                    {{ meal.description }}
+                </p>
+            </div>
+            <div class="content is-small has-text-right">
+                <p>Last cooked 5 days ago</p>
+            </div>
+        </div>
+        <div class="media-right">
+            <div class="content">
+                <p> {{ meal.calories }} <br> {{ meal.cookingTime }}</p>
+            </div>
+        </div>
+        <div class="media-right">
+            <div class="content">
+            <p ng-if="!meal.added"><a class="button is-primary is-outlined" ng-click="$ctrl.mealAdded({meal:meal})">Add</a></p>
+            <p ng-if="meal.added"><a class="button is-danger" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
+            <p class="has-text-centered"><span class="icon is-small"><i class="fa fa-heart-o" style="color:red"></i>&nbsp;16</span></p>
+            </div>
+        </div>
+    </article>
+</div>
+
+<!-- 
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <p class="image is-64x64">
+                 <img src="images/grechka.jpg"> 
             </p>
         </div>
         <div class="media-content">
@@ -51,7 +88,7 @@
     <article class="media">
         <div class="media-left">
             <p class="image is-64x64">
-                <!-- <img src="images/grechka.jpg"> -->
+                 <img src="images/grechka.jpg"> 
             </p>
         </div>
         <div class="media-content">
@@ -80,7 +117,7 @@
     <article class="media">
         <div class="media-left">
             <p class="image is-64x64">
-                <!-- <img src="images/grechka.jpg"> -->
+                 <img src="images/grechka.jpg"> 
             </p>
         </div>
         <div class="media-content">
@@ -104,5 +141,5 @@
             </div>
         </div>
     </article>
-</div>
+</div> -->
 <div></div>
