@@ -5,7 +5,8 @@ function PlanningPageController(mealService) {
     var meals = [];
 
     this.$onInit = function() {
-        self.meals = mealService.getMealsForPlanning('lunch');
+        mealService.getMealsForPlanning('lunch')
+        .then(data=>self.meals = data);
     };
     
     this.mealAdded = function(meal) {
