@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="box" ng-repeat="meal in $ctrl.meals | filter:search" ng-class="{'notification is-success' : meal.added}">
+<div class="box notification-padding-fix" ng-repeat="meal in $ctrl.meals | filter:search" ng-class="{'notification is-success' : meal.added}">
     <article class="media">
         <div class="media-left">
             <p class="image is-64x64">
@@ -30,7 +30,7 @@
         <div class="media-content">
             <div class="content">
                 <p class="subtitle is-5">
-                    {{meal.title }}
+                    {{ meal.title }}
                 </p>
                 <p>
                     {{ meal.description }}
@@ -47,8 +47,8 @@
         </div>
         <div class="media-right">
             <div class="content">
-                <p ng-if="!meal.added"><a class="button is-primary is-outlined" ng-click="$ctrl.mealAdded({meal:meal})">Add</a></p>
-                <p ng-if="meal.added"><a class="button is-danger" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
+                <p ng-if="!meal.added"><a class="button is-primary is-outlined fixed-width-100" ng-click="$ctrl.mealAdded({meal:meal})">Add</a></p>
+                <p ng-if="meal.added"><a class="button is-danger fixed-width-100" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
                 <p class="has-text-centered"><span class="icon is-small"><i class="fa fa-heart-o" style="color:red"></i>&nbsp;16</span></p>
             </div>
         </div>

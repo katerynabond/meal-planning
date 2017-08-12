@@ -1,3 +1,11 @@
 .is-white {
     color:white
 }
+
+.fixed-width-100 {
+    width: 100px
+}
+
+.notification-padding-fix {
+    padding: 1.25rem
+}

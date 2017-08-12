@@ -2,19 +2,39 @@ PlanningPageController.$inject = ['MealService'];
 
 function PlanningPageController(mealService) {
     var self = this;
-    var meals = [];
+
+    this.meals = [];
+    this.progress = 0;
 
     this.$onInit = function() {
         mealService.getMealsForPlanning('lunch')
-        .then(data=>self.meals = data);
+        .then(data=>{
+            self.meals = data;
+            self.recalculateProgress();
+        })
     };
     
     this.mealAdded = function(meal) {
-        alert('added: '+JSON.stringify(meal));
+        meal.added = 1;
+        self.recalculateProgress();
+        
+        //self.meals[0].added = 1;
+        //alert('added: '+JSON.stringify(meal));
     };
 
     this.mealRemoved = function(meal) {
-        alert('removed: '+JSON.stringify(meal));
+        meal.added = 0;
+        self.recalculateProgress();
+        //self.meals[0].added = 0;
+        //alert('removed: '+JSON.stringify(meal));
+    };
+
+    this.recalculateProgress = function() {
+        var totalAdded = 0;
+        for(var meal of self.meals) {
+            totalAdded += meal.added;
+        }
+        self.progress = totalAdded;
     };
 };
 

@@ -17,7 +17,7 @@
             </p>
         </div> -->
         <div class="field column is-half is-offset-one-quarter">
-            <progress class="progress is-primary" value="15" max="100">15%</progress>
+            <progress class="progress is-primary" ng-value="$ctrl.progress" max="7">Progress</progress>
         </div>
 
         <meals-list meals="$ctrl.meals" meal-added="$ctrl.mealAdded(meal)" meal-removed="$ctrl.mealRemoved(meal)"></meals-list>
