@@ -4,7 +4,8 @@ function MealService($http) {
     const baseUrl = 'http://localhost:9080/';
     return {
         getMeal: getMeal,
-        getMealsForPlanning: getMealsForPlanning
+        getMealsForPlanning: getMealsForPlanning,
+        setMealCount: setMealCount
     };
 
     function getMeal(date, course) {
@@ -21,6 +22,10 @@ function MealService($http) {
             .then(response => {
                 return response.data;
             })
+    };
+    
+    function setMealCount(week, course, meal, count) {
+        // nothing to do here yet
     };
 };
 
