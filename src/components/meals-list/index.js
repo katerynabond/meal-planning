@@ -7,7 +7,8 @@ const MealsListComponent = {
     bindings: {
         meals: '<',
         mealAdded: '&',
-        mealRemoved: '&'
+        mealRemoved: '&',
+        like: '&'
     }
 };
 

@@ -5,7 +5,8 @@ function MealService($http) {
     return {
         getMeal: getMeal,
         getMealsForPlanning: getMealsForPlanning,
-        setMealCount: setMealCount
+        addMeal: addMeal,
+        removeMeal: removeMeal
     };
 
     function getMeal(date, course) {
@@ -16,16 +17,32 @@ function MealService($http) {
             })
     };
 
-    function getMealsForPlanning(course) {
-        const url = `${baseUrl}meals/${course}`;
+    function getMealsForPlanning(week, course) {
+        const url = `${baseUrl}meals/${week.toISOString()}/${course}`;
         return $http.get(url)
             .then(response => {
                 return response.data;
             })
     };
-    
-    function setMealCount(week, course, meal, count) {
-        // nothing to do here yet
+
+    function addMeal(week, course, meal) {
+        const url = `${baseUrl}plan/${week.toISOString()}/${course}`;
+        return $http.post(url, { mealId: meal._id })
+            .then(() => {
+                return true;
+            }, () => {
+                return false;
+            });
+    };
+
+    function removeMeal(week, course, meal) {
+        const url = `${baseUrl}plan/${week.toISOString()}/${course}/${meal._id}`;
+        return $http.delete(url)
+            .then(() => {
+                return true;
+            }, () => {
+                return false;
+            });
     };
 };
 

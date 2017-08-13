@@ -6,9 +6,10 @@ function PlanningPageController(mealService) {
     this.meals = [];
     this.progress = 0;
     this.course = 'lunch';
+    this.week = new Date('2017-01-01T12:00:00Z');
 
     function loadData() {
-        mealService.getMealsForPlanning(self.course)
+        mealService.getMealsForPlanning(self.week, self.course)
             .then(data => {
                 self.meals = data;
                 self.recalculateProgress();
@@ -27,7 +28,7 @@ function PlanningPageController(mealService) {
     this.mealAdded = function (meal) {
         meal.added = 1;
         self.recalculateProgress();
-        mealService.setMealCount(0, 0, meal, meal.added);
+        mealService.addMeal(self.week, self.course, meal);
         //self.meals[0].added = 1;
         //alert('added: '+JSON.stringify(meal));
     };
@@ -35,9 +36,13 @@ function PlanningPageController(mealService) {
     this.mealRemoved = function (meal) {
         meal.added = 0;
         self.recalculateProgress();
-        mealService.setMealCount(0, 0, meal, meal.added);
+        mealService.removeMeal(self.week, self.course, meal);
         //self.meals[0].added = 0;
         //alert('removed: '+JSON.stringify(meal));
+    };
+
+    this.like = function(meal) {
+        meal.likes++;
     };
 
     this.recalculateProgress = function () {

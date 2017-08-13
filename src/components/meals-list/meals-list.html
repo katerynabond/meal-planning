@@ -49,7 +49,7 @@
             <div class="content">
                 <p ng-if="!meal.added"><a class="button is-primary is-outlined fixed-width-100" ng-click="$ctrl.mealAdded({meal:meal})">Add</a></p>
                 <p ng-if="meal.added"><a class="button is-danger fixed-width-100" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
-                <p class="has-text-centered"><span class="icon is-small"><i class="fa fa-heart-o" style="color:red"></i>&nbsp;16</span></p>
+                <p class="has-text-centered"><span class="icon is-small"><a ng-click="$ctrl.like({meal:meal})"><i class="fa fa-heart-o" style="color:red"></i></a>&nbsp;{{meal.likes}}</span></p>
             </div>
         </div>
     </article>
