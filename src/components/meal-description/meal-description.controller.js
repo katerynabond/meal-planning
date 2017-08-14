@@ -1,5 +1,9 @@
-function MealDescriptionController(){
+MealDescriptionController.$inject = ['ImagesService'];
 
+function MealDescriptionController(imagesService){
+    var self = this;
+
+    this.loadImage = imagesService.loadImage;
 };
 
 
