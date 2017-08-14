@@ -2,7 +2,7 @@ MainController.$inject = ['MealService'];
 
 function MainController(mealService){
 
-  this.currentDate = new Date();
+  this.currentDate = new Date().setHours(0,0,0,0);
   this.courseName = 'lunch';
   this.liked = false;
 

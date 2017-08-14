@@ -6,7 +6,8 @@ function PlanningPageController(mealService) {
     this.meals = [];
     this.progress = 0;
     this.course = 'lunch';
-    this.week = new Date('2017-01-01T12:00:00Z');
+    this.week = new Date();
+    this.weekEnd = new Date();
 
     function loadData() {
         mealService.getMealsForPlanning(self.week, self.course)
@@ -16,7 +17,19 @@ function PlanningPageController(mealService) {
             });
     };
 
+    function initWeek(date) {
+        self.week = date;
+        while(self.week.getDay() != 0) {
+            self.week.setDate(self.week.getDate() - 1);
+        }
+        self.week.setHours(0,0,0,0);
+        self.weekEnd = new Date(self.week);
+        self.weekEnd.setDate(self.week.getDate() + 6);
+        self.weekEnd.setHours(0,0,0,0);
+    };
+
     this.$onInit = function () {
+        initWeek(new Date());
         loadData();
     };
 
@@ -29,20 +42,30 @@ function PlanningPageController(mealService) {
         meal.added = 1;
         self.recalculateProgress();
         mealService.addMeal(self.week, self.course, meal);
-        //self.meals[0].added = 1;
-        //alert('added: '+JSON.stringify(meal));
     };
 
     this.mealRemoved = function (meal) {
         meal.added = 0;
         self.recalculateProgress();
         mealService.removeMeal(self.week, self.course, meal);
-        //self.meals[0].added = 0;
-        //alert('removed: '+JSON.stringify(meal));
     };
 
     this.like = function(meal) {
         meal.likes++;
+    };
+
+    this.nextWeek = function() {
+        var d = new Date(self.week);
+        d.setDate(d.getDate() + 7);
+        initWeek(d);
+        loadData();
+    };
+
+    this.previousWeek = function() {
+        var d = new Date(self.week);
+        d.setDate(d.getDate() - 7);
+        initWeek(d);
+        loadData();
     };
 
     this.recalculateProgress = function () {

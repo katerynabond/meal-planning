@@ -1,27 +1,29 @@
 <section class="section">
     <div class="container has-text-centered">
-        <h1 class="title">Weekly planning</h1>
-        <h2 class="subtitle">10 Jul - 17 Jul</h2>
-        <course-selector course-changed="$ctrl.courseChanged(course)"></course-selector>
+        <div class="columns">
+            <div class="column is-2 has-text-left">
+                <a class="button is-primary is-outlined subtitle" ng-click="$ctrl.previousWeek()">
+                    &lt;&lt;
+                    </a>
+            </div>
+            <div class="column is-8">
+                <h1 class="title">Weekly planning</h1>
+                <h2 class="subtitle">{{$ctrl.week | date:'MMM dd'}} - {{$ctrl.weekEnd | date:'MMM dd'}}</h2>
+                <course-selector course-changed="$ctrl.courseChanged(course)"></course-selector>
+            </div>
+            <div class="column is-2 has-text-right">
+                <a class="button is-primary is-outlined subtitle" ng-click="$ctrl.nextWeek()">
+                    &gt;&gt;
+                    </a>
+            </div>
+        </div>
 
-        <!-- <div class="field has-addons has-addons-centered">
-
-            <p class="control">
-                <a class="button is-primary">Breakfast</a>
-            </p>
-            <p class="control">
-                <a class="button">Lunch&nbsp;<i class="fa fa-check-circle-o"></i></a>
-            </p>
-            <p class="control">
-                <a class="button">Dinner</a>
-            </p>
-        </div> -->
         <div class="field column is-half is-offset-one-quarter">
             <progress class="progress is-primary" ng-value="$ctrl.progress" max="7">Progress</progress>
         </div>
 
         <meals-list meals="$ctrl.meals" meal-added="$ctrl.mealAdded(meal)" meal-removed="$ctrl.mealRemoved(meal)" like="$ctrl.like(meal)"></meals-list>
-        
+
 
     </div>
 </section>

@@ -2,6 +2,9 @@
     <div class="container has-text-centered">
         <day-selector date-changed="$ctrl.dateChangedHandler(date)"></day-selector>
         <course-selector course-changed="$ctrl.courseChanged(course)"></course-selector>
-        <meal-description current-meal="$ctrl.currentMeal"></meal-description>
+        <meal-description current-meal="$ctrl.currentMeal" ng-if="$ctrl.currentMeal"></meal-description>
+        <div class="content" ng-if="!$ctrl.currentMeal">
+            <h1>No meal planned</h1>
+        </div>
     </div>
 </section>

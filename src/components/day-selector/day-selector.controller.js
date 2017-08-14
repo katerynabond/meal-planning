@@ -17,6 +17,7 @@ function DaySelectorController() {
     var self = this;
 
     this.setDate = function (newDate) {
+        newDate.setHours(0,0,0,0);
         self.currentDate = newDate;
         self.currentWeekDay = self.dayNames[self.currentDate.getDay()];
 
