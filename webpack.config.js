@@ -49,7 +49,7 @@ module.exports = {
 	},
 
 	plugins: [
-//		new UglifyJSPlugin(),
+		new UglifyJSPlugin(),
 		new ExtractTextPlugin('style.css'),
 		new HtmlWebpackPlugin({
 			title: 'Meal planning',

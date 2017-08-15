@@ -7,8 +7,9 @@
         </div>
         <div class="media-content">
             <div class="content">
-                <p class="subtitle">
+                <p class="subtitle is-4"><em>
                     {{ $ctrl.currentMeal.description }}
+                    </em>
                 </p>
             </div>
         </div>
@@ -19,8 +20,10 @@
                         </a>
         </div>
     </article>
+    <br>
+    <h1 class="title has-text-left is-4">Ingredients</h1>
+
     <div class="content has-text-left">
-        <h2>Ingredients</h2>
         <p ng-repeat="ingredient in $ctrl.currentMeal.ingredients">
             {{ ingredient }}
         </p>
@@ -32,12 +35,12 @@
                 </dl>
             </div>
         </div>
-
-        <h2>Preparation</h2>
+    </div>
+    <h1 class="title has-text-left is-4">Preparation</h1>
+    <div class="content has-text-left">
         <ol>
             <li ng-repeat="step in $ctrl.currentMeal.preparationSteps"> {{ step }}</li>
         </ol>
-        <h2>Video</h2>
 
     </div>
 </div>

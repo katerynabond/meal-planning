@@ -8,37 +8,37 @@
         </div>
     </div>
     <div class="column">
-        <div class="select is-pulled-right">
+        <!-- <div class="select is-pulled-right">
             <select>
                 <option>Calories</option>
                 <option>Cooking time</option>
                 <option>Popularity</option>
                 <option>New</option>
             </select>
-        </div>
+        </div> -->
     </div>
 </div>
 
 
-<div class="box notification-padding-fix" ng-repeat="meal in $ctrl.meals | filter:search" ng-class="{'notification is-success' : meal.added}">
+<div class="box notification-padding-fix" ng-repeat="meal in $ctrl.meals | filter:search" ng-class="{'notification is-lightcolor' : meal.added}">
     <article class="media">
         <div class="media-left">
-            <p class="image is-64x64">
+            <p class="image is-128x128">
              <img ng-src="{{ $ctrl.loadImage(meal.image) }}">
             </p>
         </div>
         <div class="media-content">
             <div class="content">
-                <p class="subtitle is-5">
+                <!-- <p class="subtitle is-5">
                     {{ meal.title }}
-                </p>
-                <p>
+                </p> -->
+                <p class="subtitle is-5">
                     {{ meal.description }}
                 </p>
             </div>
-            <div class="content is-small has-text-right">
+            <!-- <div class="content is-small has-text-right">
                 <p>Last cooked 5 days ago</p>
-            </div>
+            </div> -->
         </div>
         <div class="media-right">
             <div class="content">
@@ -48,98 +48,11 @@
         <div class="media-right">
             <div class="content">
                 <p ng-if="!meal.added"><a class="button is-primary is-outlined fixed-width-100" ng-click="$ctrl.mealAdded({meal:meal})">Add</a></p>
-                <p ng-if="meal.added"><a class="button is-danger fixed-width-100" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
+                <p ng-if="meal.added"><a class="button is-danger is-outlined fixed-width-100" ng-click="$ctrl.mealRemoved({meal:meal})">Remove</a></p>
                 <p class="has-text-centered"><span class="icon is-small"><a ng-click="$ctrl.like({meal:meal})"><i class="fa fa-heart-o" style="color:red"></i></a>&nbsp;{{meal.likes}}</span></p>
             </div>
         </div>
     </article>
 </div>
 
-<!-- 
-<div class="box">
-    <article class="media">
-        <div class="media-left">
-            <p class="image is-64x64">
-                 <img src="images/grechka.jpg"> 
-            </p>
-        </div>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    Energizing and nutritious, buckwheat is available throughout the year and can be served as an alternative to rice or made
-                    into porridge.
-                </p>
-            </div>
-            <div class="content is-small has-text-right">
-                <p>Last cooked 5 days ago</p>
-            </div>
-        </div>
-        <div class="media-right">
-            <div class="content">
-                <p> 100 Cal <br> 15 min</p>
-            </div>
-        </div>
-        <div class="media-right">
-            <a class="button is-primary is-outlined">Add</a>
-        </div>
-    </article>
-</div>
-<div class="box">
-    <article class="media">
-        <div class="media-left">
-            <p class="image is-64x64">
-                 <img src="images/grechka.jpg"> 
-            </p>
-        </div>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    Energizing and nutritious, buckwheat is available throughout the year and can be served as an alternative to rice or made
-                    into porridge.
-                </p>
-            </div>
-        </div>
-        <div class="media-right">
-            <div class="content">
-                <p> 100 Cal <br> 15 min</p>
-            </div>
-        </div>
-        <div class="media-right">
-            <div class="content">
-                <p><a class="button is-primary is-outlined">Add</a>
-                    <p>
-                        <p class="has-text-centered"><span class="icon is-small"><i class="fa fa-heart-o" style="color:red"></i>&nbsp;16</span></p>
-            </div>
-        </div>
-    </article>
-</div>
-<div class="box notification is-success" style="padding:1.25rem">
-    <article class="media">
-        <div class="media-left">
-            <p class="image is-64x64">
-                 <img src="images/grechka.jpg"> 
-            </p>
-        </div>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    Energizing and nutritious, buckwheat is available throughout the year and can be served as an alternative to rice or made
-                    into porridge.
-                </p>
-            </div>
-        </div>
-        <div class="media-right">
-            <div class="content">
-                <p> 100 Cal <br> 15 min</p>
-            </div>
-        </div>
-        <div class="media-right">
-            <div class="content">
-                <p><a class="button is-danger">Remove</a>
-                    <p>
-                        <p class="has-text-centered"><span class="icon is-small"><i class="fa fa-heart" style="color:red"></i>&nbsp;500</span></p>
-            </div>
-        </div>
-    </article>
-</div> -->
 <div></div>

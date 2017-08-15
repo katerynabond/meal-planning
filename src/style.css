@@ -9,3 +9,7 @@
 .notification-padding-fix {
     padding: 1.25rem
 }
+
+.notification.is-lightcolor {
+    background-color: #e0f9f6
+}
