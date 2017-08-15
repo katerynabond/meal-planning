@@ -1,16 +1,1 @@
-<!DOCTYPE html>
-<html ng-app='meal-planning' lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Meal planning</title>
-</head>
-<body>
-<div ng-controller='MainController as ctrl'>
-    {{ ctrl.message }}
-
-  </div>
-
-<script type="text/javascript" src="main.bundle.js"></script></body>
-</html>
+<html ng-app=meal-planning> <head> <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css> <link href="style.css" rel="stylesheet"></head> <body class=page-grid> <nav class=navbar> <div class=navbar-brand> <a class=navbar-item><i class="fa fa-cutlery" aria-hidden=true></i></a> <div class="navbar-burger burger" data-target=navMenu> <span></span> <span></span> <span></span> </div> </div> <div class=navbar-menu id=navMenu> <div class=navbar-start> <a class=navbar-item href=#!/ >Now</a> <a class=navbar-item href=#!/plan>Planning</a> </div> <div class=navbar-end> <div class=navbar-item> </div> </div> </div> </nav> <div ng-view> </div> <footer class=footer> <div class=container> <div class="content has-text-centered"> <p> &copy; 2017 by kbondareva@gmail.com <a href=https://github.com/katerynabond>GitHub</a></p> </div> </div> </footer> <script type="text/javascript" src="main.bundle.js"></script></body> </html>
