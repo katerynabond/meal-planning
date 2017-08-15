@@ -1,7 +1,8 @@
 MealService.$inject = ['$http'];
 
 function MealService($http) {
-    const baseUrl = 'http://localhost:9080/';
+    //const baseUrl = 'http://localhost:9080/';
+    const baseUrl = 'https://meal-planning-api.herokuapp.com/';
     return {
         getMeal: getMeal,
         getMealsForPlanning: getMealsForPlanning,
